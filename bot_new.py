@@ -61,11 +61,11 @@ def callback_inline(call):
     if call.data == "test":
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=call.message.text)
         text = 'Добро пожаловать!\nВас приветствует бот СПбГУ!\nДля абитуариентов и студентов, у нас есть специальные разделы на сайте. \nУкажите пожалйуйста свой статус:'
-		    keyboardStart = telebot.types.InlineKeyboardMarkup()
-		    callback_button0 = telebot.types.InlineKeyboardButton(text="Абитуриент", callback_data="abitur")
-		    callback_button1 = telebot.types.InlineKeyboardButton(text="Студент", callback_data="students")
-		    keyboardStart.add(callback_button0,callback_button1)
-		    bot.send_message(message.chat.id, text,reply_markup=keyboardStart)
+        keyboardStart = telebot.types.InlineKeyboardMarkup()
+        callback_button0 = telebot.types.InlineKeyboardButton(text="Абитуриент", callback_data="abitur")
+        callback_button1 = telebot.types.InlineKeyboardButton(text="Студент", callback_data="students")
+        keyboardStart.add(callback_button0,callback_button1)
+        bot.send_message(call.message.chat.id, text,reply_markup=keyboardStart)
     if call.data == "event":
         text = "Вы выбрали раздел:\nМероприятия"
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=call.message.text)
